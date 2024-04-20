@@ -1,0 +1,3 @@
+[submodule "statiq-dopetrope-demo/theme"]
+	path = statiq-dopetrope-demo/theme
+	url = https://github.com/suchja/Dopetrope.git
