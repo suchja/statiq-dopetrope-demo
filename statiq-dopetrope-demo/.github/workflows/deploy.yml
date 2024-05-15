@@ -1,0 +1,24 @@
+name: Deploy Site
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: Website
+    steps:
+      - name: Get Source
+        uses: actions/checkout@v2
+        with:
+          path: Website
+          submodules: recursive
+      - name: Install .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+      - run: dotnet run -- deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
