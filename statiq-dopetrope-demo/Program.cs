@@ -3,7 +3,7 @@
   .CreateWeb(args)
   .DeployToGitHubPagesBranch(
         "suchja",
-        "suchja.github.io",
+        "statiq-dopetrope-demo",
         Config.FromSetting<string>("GITHUB_TOKEN"),
         "main")
   .RunAsync();
