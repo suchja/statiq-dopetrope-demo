@@ -8,12 +8,11 @@ jobs:
     runs-on: windows-latest
     defaults:
       run:
-        working-directory: Website
+        working-directory: statiq-dopetrope-demo
     steps:
       - name: Get Source
         uses: actions/checkout@v2
         with:
-          path: Website
           submodules: recursive
       - name: Install .NET SDK
         uses: actions/setup-dotnet@v4
