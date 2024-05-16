@@ -25,6 +25,6 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
-      - run: dotnet run -- deploy
+      - run: dotnet run -- deploy -l "Trace"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
