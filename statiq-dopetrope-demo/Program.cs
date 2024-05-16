@@ -1,4 +1,5 @@
-﻿return await Bootstrapper
+﻿Console.WriteLine($"GH-Token: {Config.FromSetting<string>("GITHUB_TOKEN")}");
+return await Bootstrapper
   .Factory
   .CreateWeb(args)
   .DeployToGitHubPagesBranch(
