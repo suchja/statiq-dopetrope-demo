@@ -5,6 +5,6 @@
         "suchja",
         "statiq-dopetrope-demo",
         Config.FromSetting<string>("GITHUB_TOKEN"),
-        "main")
+        "gh-pages")
   .RunAsync();
   
