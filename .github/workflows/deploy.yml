@@ -6,7 +6,7 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages    
 permissions:
-  contents: write
+  contents: read
   pages: write
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
         working-directory: statiq-dopetrope-demo
     steps:
       - name: Get Source
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Install .NET SDK
