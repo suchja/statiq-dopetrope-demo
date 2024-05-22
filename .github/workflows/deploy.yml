@@ -13,6 +13,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      ASPNETCORE_ENVIRONMENT: gh-pages
     defaults:
       run:
         working-directory: statiq-dopetrope-demo
