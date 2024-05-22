@@ -1,5 +1,6 @@
 SiteTitle: Dopetrope (Statiq)
-Host: suchja.github.io/statiq-dopetrope-demo
+Host: suchja.github.io/
+LinkRoot: /statiq-dopetrope-demo
 LinksUseHttps: true
 PageTitle: |
   =>
