@@ -27,14 +27,8 @@ jobs:
         with:
           dotnet-version: '8.x'
 
-      - name: Restore dependencies
-        run: dotnet restore
-
-      - name: Build
-        run: dotnet build --no-restore
-
       - name: Run
-        run: dotnet run
+        run: dotnet run --project statiq-dopetrope-demo/statiq-dopetrope-demo.csproj
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
