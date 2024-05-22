@@ -6,12 +6,13 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages    
 permissions:
-  contents: write
+  contents: read
   pages: write
+  id-token: write
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: statiq-dopetrope-demo
@@ -20,10 +21,30 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
       - name: Install .NET SDK
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
-      - run: dotnet run -- deploy -l "Trace"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore
+
+      - name: Run
+        run: dotnet run
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload static site generated in the output folder
+          path: './output'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
